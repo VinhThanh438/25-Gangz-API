@@ -1,0 +1,48 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"25-gangz-store"},
+{"type":"table","name":"product","database":"25-gangz-store","data": 
+[
+{"id":"0","name":"nike air max","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"1","name":"nike blazer","price":"2.300.000","imgAddress":"https:\/\/i.pinimg.com\/564x\/1d\/b9\/27\/1db927ef92eef70bf1c4e122fee54e45.jpg","condition":""},
+{"id":"9","name":"nike blazer","price":"2.340.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"13","name":"nike air force","price":"2.000.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":""},
+{"id":"14","name":"nike air max","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"15","name":"nike air max(edit)","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"16","name":"nike air max(edit)","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"18","name":"nike air max","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"},
+{"id":"19","name":"nike air max","price":"2.500.000","imgAddress":"https:\/\/i.pinimg.com\/736x\/3e\/0d\/2a\/3e0d2a0309baaeba524d09cc23d80327.jpg","condition":"sold"}
+]
+}
+,{"type":"table","name":"user","database":"25-gangz-store","data":
+[
+{"userId":"15","userName":"admin","userPassword":"$2b$10$12OeDBCqgWs2ccyIxBjcG.tP92UuWnKnzStvZ49PZct1x\/RpvAULO","isAdmin":"1"},
+{"userId":"16","userName":"user1","userPassword":"$2b$10$pmNf.pG2laGv3OJv2arlqe1Nrrq6byivUb9Rup2BdTjpyewdJUseq","isAdmin":null},
+{"userId":"19","userName":"user2","userPassword":"$2b$10$KtRZAZx\/QJLbNR3MXQBNNemVgMc\/T3OyhttIvtN8LsqHh4eyz3nHm","isAdmin":null},
+{"userId":"31","userName":"user4","userPassword":"$2b$10$qT6uoDvYT5lVLzmwezRx7OLJuqFpZsj1PCyGztt4zZp\/DLnioa.X6","isAdmin":null},
+{"userId":"32","userName":"user5","userPassword":"$2b$10$T1hQCur7oAFtwc8kKzpGfecLW18XhNp4HjTl8KJxgAwcmkk3u98nm","isAdmin":null},
+{"userId":"33","userName":"user6","userPassword":"$2b$10$QY\/MEZo6hrsCBBkDb7mtau3088lcgOBIrZRSm6FhgQSBxdJUVonba","isAdmin":null},
+{"userId":"34","userName":"user7","userPassword":"$2b$10$m6TNrsh\/y0tomXTJCVxqNucq3mwpx24WoSz9x5d7af0jmT8CGUu0a","isAdmin":null},
+{"userId":"35","userName":"user8","userPassword":"$2b$10$ns3zysbO8ak843QMAkjG6Op76nx43RS02.Zb7OUof3JIHUTk7ntji","isAdmin":null},
+{"userId":"36","userName":"user9","userPassword":"$2b$10$BwpcfwIv7pIwE4vllm6yn.J\/7n7JbbOv2oPVN70SI2GrKldtXnRoi","isAdmin":null},
+{"userId":"37","userName":"user10","userPassword":"$2b$10$u6HwP55d0iYQUQTukWmSUudXSyuZunyMBPlt4Wy8oBe00pk8\/.OW6","isAdmin":null},
+{"userId":"38","userName":"user11","userPassword":"$2b$10$ICPmgVmE3JOBeKeiYF5rpOPWAmTrMDR8M9dohL0Z4o\/FGLtC3YcDa","isAdmin":null},
+{"userId":"39","userName":"user12","userPassword":"$2b$10$aPVUHjNdmbuowviBX6ySw.THoBCRFICct0oUDBgrMDd2Z5zS15Npq","isAdmin":null},
+{"userId":"40","userName":"user13","userPassword":"$2b$10$k8QjEhe9IDRXQtgNe2lyheLDKdbWbbS1OxdnhH\/SyWrU\/bKJ8edWG","isAdmin":null},
+{"userId":"41","userName":"user14","userPassword":"$2b$10$dccnonlMzjVtYagAzoJncOvaXGjU0ho42cFWt8XkJWwLRCYvOcnMe","isAdmin":null},
+{"userId":"42","userName":"user15","userPassword":"$2b$10$uvrUYdo3ywWYzlfNQESfHuK5YWs.q55vDQbfv7KB8R8wH0pjE7RIe","isAdmin":null},
+{"userId":"43","userName":"user16","userPassword":"$2b$10$yOxpy3QXDnK\/uW..q4bsnuddNz7bEkhc40khF9PZvHbgF2xjiyjEW","isAdmin":null},
+{"userId":"44","userName":"user17","userPassword":"$2b$10$PMIdXkmDDX4d7Ez5dXklau9TlvNWTaFGxe91BpiA2.PLvAde9QY7K","isAdmin":null},
+{"userId":"45","userName":"user18","userPassword":"$2b$10$VLQK4Yipq.gdTp9JHabWkuaIrVrlQXeoTrEoz4alvwIwCUb8Eqhuq","isAdmin":null},
+{"userId":"46","userName":"user19","userPassword":"$2b$10$gnnJKvsmx3B8wpzi\/Rx56um.T4vu\/3rratCDBnrJmoX9XQElY5sM.","isAdmin":null},
+{"userId":"47","userName":"user20","userPassword":"$2b$10$zgvcPtWW1qnGXTPFNv2xH.OxnIsjwfHKBCIM2GrJF9G2Fv1nEr.Q6","isAdmin":null},
+{"userId":"48","userName":"user21","userPassword":"$2b$10$iLmVSPjbB76Yf0mVCOq6xuOD3WmpiTSQaafDxkPSF9PbTBG\/YV4.i","isAdmin":null},
+{"userId":"49","userName":"user22","userPassword":"$2b$10$r5XB7W4ZHgYz6gHi4yukr.yallaI6fIUTBJ7hMRrwbn\/RmuEBh4Oe","isAdmin":null},
+{"userId":"50","userName":"user23","userPassword":"$2b$10$Nl4So75o87lnvL95rd8v2O6RKbD.ZfKp7R\/eBRUsuH9S6Qgdcrnba","isAdmin":null},
+{"userId":"51","userName":"user24","userPassword":"$2b$10$pPWWYZWBMyIalqxvyOiuJ.RYxu6FAG7hebONcfBopzRNH8\/P8.FNy","isAdmin":null},
+{"userId":"52","userName":"user25","userPassword":"$2b$10$yRajn3\/jIQ0NnC98OOZe..U0yPyv9tsxBLUY\/ONnFFgYvfuui5QEa","isAdmin":null},
+{"userId":"53","userName":"user26","userPassword":"$2b$10$ElUvCG7LNMkL3YM8Dh4WeeSdxg7lgvd\/pT5ZrXFZjpZUm2qyS23ZS","isAdmin":null},
+{"userId":"54","userName":"user27","userPassword":"$2b$10$14mi.ioiVeMJDxbrt79UgOEdTb0bu19VShUwwACSLrKt6XVMY\/h5u","isAdmin":null}
+]
+}
+]

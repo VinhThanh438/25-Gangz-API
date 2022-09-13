@@ -2,6 +2,8 @@ import pool from '../config/DB.config'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
+let refreshTokens = []
+
 const generateToken = {
     accessToken: (data) => {
         return jwt.sign(
@@ -57,6 +59,13 @@ const userController = {
             if (data && validPassword) {
                 const accessToken = generateToken.accessToken(data)
                 const refreshToken = generateToken.refreshToken(data)
+                refreshTokens.push(refreshToken)
+                res.cookie('refreshToken', refreshToken, {
+                    httpOnly: true,
+                    secure: false,
+                    path: '/',
+                    sameSite: 'strict',
+                })
                 return res.status(200).json({
                     message: 'Logged in successfully',
                     accessToken: accessToken,
@@ -77,6 +86,30 @@ const userController = {
         } catch (err) {
             return res.status(500).json({ message: 'server error', error: err })
         }
+    },
+
+    requestRefreshToken: (req, res, next) => {
+        const refreshToken = req.cookies.refreshToken
+        if (!refreshToken)
+            return res.status(401).json({ message: 'you are not authenticated' })
+        if (!refreshTokens.includes(refreshToken))
+            return res.status(403).json({ message: 'refresh token is not valid' })
+        jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, user) => {
+            if (err) res.status(403).json({ error: err })
+            refreshTokens = refreshTokens.filter((token) => token !== refreshToken)
+
+            //create new acess token and refresh token
+            const newAccessToken = generateToken.accessToken(user)
+            const newRefreshToken = generateToken.refreshToken(user)
+            refreshTokens.push(newRefreshToken)
+            res.cookie(refreshToken, newAccessToken, {
+                httpOnly: true,
+                secure: false,
+                path: '/',
+                sameSite: 'strict',
+            })
+            return res.status(200).json({ newRefreshToken: newAccessToken })
+        })
     },
 }
 
