@@ -4,23 +4,23 @@ import jwt from 'jsonwebtoken'
 
 let refreshTokens = []
 
-const generateToken = {
-    accessToken: (data) => {
+const userController = {
+    generateAccessToken: (data) => {
         return jwt.sign(
             {
-                userID: data.userId,
+                userId: data.userId,
                 userName: data.userName,
                 isAdmin: data.isAdmin,
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: '30s' }
+            { expiresIn: '25s' }
         )
     },
 
-    refreshToken: (data) => {
+    generateRefreshToken: (data) => {
         return jwt.sign(
             {
-                userID: data.userId,
+                userId: data.userId,
                 userName: data.userName,
                 isAdmin: data.isAdmin,
             },
@@ -28,9 +28,7 @@ const generateToken = {
             { expiresIn: '365d' }
         )
     },
-}
 
-const userController = {
     register: async (req, res) => {
         try {
             const salt = await bcrypt.genSalt(10)
@@ -57,8 +55,8 @@ const userController = {
             if (!validPassword)
                 return res.status(404).json({ message: 'Invalid Password' })
             if (data && validPassword) {
-                const accessToken = generateToken.accessToken(data)
-                const refreshToken = generateToken.refreshToken(data)
+                const accessToken = userController.generateAccessToken(data)
+                const refreshToken = userController.generateRefreshToken(data)
                 refreshTokens.push(refreshToken)
                 res.cookie('refreshToken', refreshToken, {
                     httpOnly: true,
@@ -80,8 +78,8 @@ const userController = {
     deleteUser: async (req, res, next) => {
         try {
             const query = 'delete from user where `user`.`userId` = ?'
-            const userID = req.params.id
-            await pool.execute(query, [userID])
+            const userId = req.params.id
+            await pool.execute(query, [userId])
             return res.status(203).json({ message: 'user has deleted' })
         } catch (err) {
             return res.status(500).json({ message: 'server error', error: err })
@@ -90,25 +88,30 @@ const userController = {
 
     requestRefreshToken: (req, res, next) => {
         const refreshToken = req.cookies.refreshToken
+
+        // lost user id and password in refresh token
+
         if (!refreshToken)
             return res.status(401).json({ message: 'you are not authenticated' })
         if (!refreshTokens.includes(refreshToken))
             return res.status(403).json({ message: 'refresh token is not valid' })
-        jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, user) => {
-            if (err) res.status(403).json({ error: err })
+        jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, data) => {
+            if (err) return res.status(403).json({ error: err })
             refreshTokens = refreshTokens.filter((token) => token !== refreshToken)
 
             //create new acess token and refresh token
-            const newAccessToken = generateToken.accessToken(user)
-            const newRefreshToken = generateToken.refreshToken(user)
+            const newAccessToken = userController.generateAccessToken(data)
+            const newRefreshToken = userController.generateRefreshToken(data)
             refreshTokens.push(newRefreshToken)
-            res.cookie(refreshToken, newAccessToken, {
+            res.cookie('newRefreshToken', newRefreshToken, {
                 httpOnly: true,
                 secure: false,
                 path: '/',
                 sameSite: 'strict',
             })
-            return res.status(200).json({ newRefreshToken: newAccessToken })
+            return res.status(200).json({
+                newAccessToken: newAccessToken,
+            })
         })
     },
 }

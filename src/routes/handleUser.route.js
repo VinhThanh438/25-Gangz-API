@@ -7,5 +7,6 @@ const router = express.Router()
 router.post('/register', authentication.register, authController.register)
 router.post('/login', authController.logIn)
 router.post('/delete/:id', authorize.userAndAdminAuthorize, authController.deleteUser)
+router.post('/auth/refresh', authController.requestRefreshToken)
 
 module.exports = router
