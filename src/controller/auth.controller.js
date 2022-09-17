@@ -13,7 +13,7 @@ const userController = {
                 isAdmin: data.isAdmin,
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: '25s' }
+            { expiresIn: '60s' }
         )
     },
 
@@ -67,7 +67,6 @@ const userController = {
                 return res.status(200).json({
                     message: 'Logged in successfully',
                     accessToken: accessToken,
-                    refreshToken: refreshToken,
                 })
             }
         } catch (err) {
@@ -113,6 +112,14 @@ const userController = {
                 newAccessToken: newAccessToken,
             })
         })
+    },
+
+    logOut: async (req, res) => {
+        res.clearCookie('refreshToken')
+        refreshTokens = refreshTokens.filter(
+            (token) => token !== req.cookies.refreshToken
+        )
+        return res.status(200).json({ message: 'logged out successfully!' })
     },
 }
 

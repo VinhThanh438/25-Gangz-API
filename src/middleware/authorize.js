@@ -6,7 +6,7 @@ const authorize = {
         if (token) {
             const accessToken = token.split(' ')[1]
             jwt.verify(accessToken, process.env.JWT_ACCESS_KEY, (err, user) => {
-                if (err) res.status(403).json({ error: err })
+                if (err) return res.status(403).json({ error: err })
                 req.user = user
                 next()
             })
