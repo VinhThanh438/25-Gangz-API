@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VinhThanh438/API-25-GS.git"
+    "url": "git+https://github.com/VinhThanh438/25-Gangz-API.git"
   },
   "author": "Vinh Thanh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VinhThanh438/API-25-GS/issues"
+    "url": "https://github.com/VinhThanh438/25-Gangz-API/issues"
   },
-  "homepage": "https://github.com/VinhThanh438/API-25-GS#readme",
+  "homepage": "https://github.com/VinhThanh438/25-Gangz-API#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
