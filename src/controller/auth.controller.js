@@ -60,7 +60,7 @@ const userController = {
                 refreshTokens.push(refreshToken)
                 res.cookie('refreshToken', refreshToken, {
                     httpOnly: true,
-                    secure: false,
+                    secure: true,
                     path: '/',
                     sameSite: 'strict',
                 })
@@ -88,8 +88,6 @@ const userController = {
     requestRefreshToken: (req, res, next) => {
         const refreshToken = req.cookies.refreshToken
 
-        // lost user id and password in refresh token
-
         if (!refreshToken)
             return res.status(401).json({ message: 'you are not authenticated' })
         if (!refreshTokens.includes(refreshToken))
@@ -104,7 +102,7 @@ const userController = {
             refreshTokens.push(newRefreshToken)
             res.cookie('newRefreshToken', newRefreshToken, {
                 httpOnly: true,
-                secure: false,
+                secure: true,
                 path: '/',
                 sameSite: 'strict',
             })

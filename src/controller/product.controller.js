@@ -4,7 +4,7 @@ const ProductController = {
     getAll: async (req, res) => {
         try {
             const query = 'select * from product'
-            const [data, fields] = await pool.execute(query)
+            const [data] = await pool.execute(query)
             return res.status(200).json({
                 message: 'get all product',
                 data: data,
